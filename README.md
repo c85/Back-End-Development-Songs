@@ -15,7 +15,7 @@ In this lab, you will:
 - Write RESTful APIs on song resource
 - Test the APIs
 
-::page{title="Note: Important Security Information"}
+### Note: Important Security Information
 
 ## Note: Important Security Information
 Welcome to the Cloud IDE. This is where all your development will take place. It has all the tools you will need to use, including **Python** and **Flask**.
@@ -39,7 +39,7 @@ To take screenshots, you can use various free screen-capture tools or your opera
 - Windows: you can capture your active window by pressing `Alt + Print Screen` on your keyboard. This command copies an image of your active window to the clipboard. Next, open an image editor, paste the image from your clipboard to the image editor, and save the image as .jpg or .png.
 
 
-::page{title="Initialize Development Environment"}
+## Initialize Development Environment
 
 Because the Cloud IDE environment is ephemeral, it may be deleted at any time. The next time you come into the lab, a new environment may be created. Unfortunately, this means that you will need to initialize your development environment every time it is recreated. This shouldn't happen too often as the environment can last for several days at a time but when it is removed, this is the procedure to recreate it.
 
@@ -165,13 +165,13 @@ Start the MongoDB server using the following steps:
 
 You are now ready to start working. When you start the lab environment next time, ensure the MongDB service is `ACTIVE`. If you need to restart the database, the password might change.
 
-::page{title="Project Overview"}
+## Project Overview
 
 In the last module, you built the pictures service as a microservice in Flask. In this lab, you are asked to continue working on the band website. You will build a songs microservice in Flask.
 
 This microservice works with MongoDB database to store lyrics of the most popular songs of the band. You will be using the `PyMongo` python module to interact with MongoDB programatically.
 
-::page{title="REST API Guidelines Review"}
+## REST API Guidelines Review
 
 The architect has provided you with the following schema for the endpoints:
 
@@ -187,7 +187,7 @@ The architect has provided you with the following schema for the endpoints:
 | Health  | GET  | 200 OK  | `""`  | GET `/health`  |
 | Count  | GET  |  200 OK | `""`  |  GET `/count` |
 
-::page{title="Exercise 1: Write health and count endpoints"}
+## Exercise 1: Write health and count endpoints
 
 As in the pictures microservice, you need to implement the two endpoints of:
 - `/health`
@@ -258,8 +258,6 @@ $ git branch
 ### Task 2 : Implement the /health endpoint
 1. Create the `/health` endpoint. You will write all the code in the `Back-End-Development-Songs/backend/routes.py` file.
 
-::openFile{path="Back-End-Development-Songs/backend/routes.py"}
-
 ```
 @app.route("{insert URL here}", methods="{insert HTTP method name here}")
 def {insert method name here}():
@@ -315,7 +313,7 @@ Connection: close
 {"count":20}
 ```
 
-::page{title="Exercise 2: Implement the GET /song endpoint"}
+## Exercise 2: Implement the GET /song endpoint
 
 You will implement the GET /song endpoint in this exercise. `PyMongo` provides `db.collections.find({})` method to get all documents in ths songs collection.
 
@@ -326,8 +324,6 @@ Before you write the code for the endpoint, let's create a branch so you can com
 ### Task 1 : Finish the code for the endpoint
 
 As before, you will write the code for the endpoint in the `Back-End-Development-Songs/backend/routes.py` file.
-
-::openFile{path="Back-End-Development-Songs/backend/routes.py"}
 
 1. Create a Flask route that responds to the GET method for the endpoint `/song`.
 2. Create a function called `songs` to hold the implementation.
@@ -357,7 +353,7 @@ Take a screenshot of the curl command result in the terminal and name it `songs-
 
 Great, you added the second endpoint to your implementation.
 
-::page{title="Exercise 3: Implement the GET /song/id endpoint"}
+## Exercise 3: Implement the GET /song/id endpoint
 
 You will implement the GET /song/id endpoint in this exercise. `PyMongo` provides the `db.collections.find({})` method to get a specific document from the Mongo Database. You can look by any property to find the document. You will pass in the `id` property.
 
@@ -365,10 +361,7 @@ You will implement the GET /song/id endpoint in this exercise. `PyMongo` provide
 
 As before, you will write the code for the endpoint in the `Back-End-Development-Songs/backend/routes.py` file.
 
-::openFile{path="Back-End-Development-Songs/backend/routes.py"}
-
-**Note:** To open in File Explorer, go to this location:
-`Back-End-Development-Songs/backend/routes.py`
+**Note:** To open in File Explorer, go to this location: `Back-End-Development-Songs/backend/routes.py`
 
 1. Create a Flask route that responds to the GET method for the endpoint `/song/&lt;id&gt;`.
 2. Create a function called `get_song_by_id(id)` to hold the implementation.
@@ -394,17 +387,14 @@ Connection: close
 
 Let's move to the next endpoint.
 
-::page{title="Exercise 4: Implement the POST /song endpoint"}
+## Exercise 4: Implement the POST /song endpoint
 
 You will use the `db.songs.insert_one` method available in `PyMongo` to insert a single song into the database. You will first extract the song from the request body.
 
 ## Your Task
 As before, you will write the code for the endpoint in the `Back-End-Development-Songs/backend/routes.py` file.
 
-::openFile{path="Back-End-Development-Songs/backend/routes.py"}
-
-**Note:** To open in File Explorer, go to this location:
-`Back-End-Development-Songs/backend/routes.py`
+**Note:** To open in File Explorer, go to this location: `Back-End-Development-Songs/backend/routes.py`
 
 1. Create a Flask route that responds to the POST method for the endpoint `/song/&lt;id&gt;`. Use the `methods=["POST"]` in your app decorator.
 2. Create a function called `create_song()` to hold the implementation.
@@ -447,7 +437,7 @@ Connection: close
 {"Message":"song with id 323 already present"}
 ```
 
-::page{title="Exercise 5: Implement the PUT /song endpoint"}
+## Exercise 5: Implement the PUT /song endpoint
 
 You are asked to update a song in this endpoint. The client will send the updated song in the request body. You will use the `db.songs.update_one()` method in `PyMongo` to implement this method. Recall that the `update_one` method takes a `$set` argument as the changed song.
 
@@ -456,10 +446,7 @@ You are asked to update a song in this endpoint. The client will send the update
 
 The PUT endpoint will be used to update an existing picture resource. As before, you will write the code for the endpoint in the `Back-End-Development-Songs/backend/routes.py` file.
 
-::openFile{path="Back-End-Development-Songs/backend/routes.py"}
-
-**Note:** To open in File Explorer, go to this location:
-`Back-End-Development-Songs/backend/routes.py`
+**Note:** To open in File Explorer, go to this location: `Back-End-Development-Songs/backend/routes.py`
 
 1. Create a Flask route that responds to the POST method for the endpoint `/song/&lt;int:id&gt;`. Use the `methods=["PUT"]` in your app decorator.
 2. Create a function called `update_song(id)` to hold the implementation.
@@ -505,7 +492,7 @@ Connection: close
 ## Evidence
 Take a screenshot of the curl command result in the terminal and name it  `songs-ex5--put-song-passing.jpg` (or `.png`).
 
-::page{title="Exercise 6: Implement the DELETE /song endpoint"}
+## Exercise 6: Implement the DELETE /song endpoint
 
 You will impement the `DELETE song` endpoint in this exercise. You will use the `db.songs.delete_one` method provided by `PyMongo` for this purpose. You can check if any documents were modified by the method using the `deleted_count` property. If `deleted_count` is 0, the document was not found in the collection.
 
@@ -513,10 +500,7 @@ You will impement the `DELETE song` endpoint in this exercise. You will use the 
 
 The DELETE endpoint is used to delete an existing song resource. As before, you will write the code for the endpoint in the `Back-End-Development-Songs/backend/routes.py` file.
 
-::openFile{path="Back-End-Development-Songs/backend/routes.py"}
-
-**Note:** To open in File Explorer, go to this location:
-`Back-End-Development-Songs/backend/routes.py`
+**Note:** To open in File Explorer, go to this location: `Back-End-Development-Songs/backend/routes.py`
 
 1. Create a Flask route that responds to the POST method for the endpoint `/song/&lt;int:id&gt;`. Use the `methods=["DELETE"]` in your app decorator.
 2. Create a function called `delete_song(id)` to hold the implementation.
@@ -581,11 +565,9 @@ Now that you have finished the code for the microservice, you can push the `back
 
 The main branch, at this point, should have your completed code.
 
-::page{title="Solutions"}
+## Solutions
 
 This page contains the solutions for the List, Create, Update, and Delete REST APIs.
-
-## Solutions
 
 ### Health
 ```
@@ -681,7 +663,7 @@ def delete_song(id):
         return "", 204
 ```
 
-::page{title="Conclusion"}
+## Conclusion
 
 Congratulations! You have finished implementing the second microservice for getting songs. This microservice will be used by the main site in the final lab for the project.
 
