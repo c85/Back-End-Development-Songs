@@ -260,15 +260,11 @@ $ git branch
 
 ::openFile{path="Back-End-Development-Songs/backend/routes.py"}
 
-&lt;details&gt;
-	&lt;summary&gt;Click here for a hint.&lt;/summary&gt;
-
 ```
 @app.route("{insert URL here}", methods="{insert HTTP method name here}")
 def {insert method name here}():
 	return {insert data list here}
 ```
-&lt;/details&gt;
 
 Note that the flask server is running in the first terminal. Open a second terminal and execute the following command to test the endpoint:
 ```bash
@@ -293,9 +289,6 @@ Connection: close
 ### Task 3 : Implement the /count endpoint
 1. Create the `/count` endpoint in the `Back-End-Development-Songs/backend/routes.py` file.
 
-&lt;details&gt;
-	&lt;summary&gt;Click here for a hint.&lt;/summary&gt;
-
 ```
 @app.route("{insert url here}")
 def count():
@@ -304,7 +297,6 @@ def count():
 
     return {"count": count}, {insert HTTP OKAY response code here}
 ```
-&lt;/details&gt;
 
 You can test the endpoint with the following CURL command:
 ```bash
@@ -575,23 +567,15 @@ Now that you have finished the code for the microservice, you can push the `back
 	git config --local user.email {your GitHub email here}
 	```
 
-	&lt;details&gt;
-		&lt;summary&gt;Click here for a hint.&lt;/summary&gt;
-
 	```bash
 	git commit -am "{message here}"
 	git push --set-upstream origin {branch name here}
 	```
-	&lt;/details&gt;
-
-	&lt;details&gt;
-	&lt;summary&gt;Click here for a hint.&lt;/summary&gt;
 
 	```bash
 	git commit -am "implemented songs service"
 	git push --set-upstream origin backend-rest
 	```
-	&lt;/details&gt;
 
 1. Create a pull request on GitHub to merge your changes into the main branch, and, since there is no one else on your team, accept the pull request, merge it, and delete the branch.
 
@@ -604,20 +588,13 @@ This page contains the solutions for the List, Create, Update, and Delete REST A
 ## Solutions
 
 ### Health
-&lt;details&gt;
-	&lt;summary&gt;Click here to check your solution.&lt;/summary&gt;
-
 ```
 @app.route("/health")
 def healthz():
     return jsonify(dict(status="OK")), 200
 ```
-&lt;/details&gt;
 
 ### Count
-&lt;details&gt;
-	&lt;summary&gt;Click here to check your solution.&lt;/summary&gt;
-
 ```
 @app.route("/count")
 def count():
@@ -626,12 +603,8 @@ def count():
 
     return {"count": count}, 200
 ```
-&lt;/details&gt;
 
 ### List
-&lt;details&gt;
-	&lt;summary&gt;Click here to check your solution.&lt;/summary&gt;
-
 ```
 @app.route("/song", methods=["GET"])
 def songs():
@@ -641,12 +614,8 @@ def songs():
     print(results[0])
     return {"songs": parse_json(results)}, 200
 ```
-&lt;/details&gt;
 
 ### Read
-&lt;details&gt;
-	&lt;summary&gt;Click here to check your solution.&lt;/summary&gt;
-
 ```
 @app.route("/song/&lt;int:id&gt;", methods=["GET"])
 def get_song_by_id(id):
@@ -655,12 +624,8 @@ def get_song_by_id(id):
         return {"message": f"song with id {id} not found"}, 404
     return parse_json(song), 200
 ```
-&lt;/details&gt;
 
 ### Create
-&lt;details&gt;
-	&lt;summary&gt;Click here to check your solution.&lt;/summary&gt;
-
 ```
 @app.route("/song", methods=["POST"])
 def create_song():
@@ -680,12 +645,8 @@ def create_song():
 
     return {"inserted id": parse_json(insert_id.inserted_id)}, 201
 ```
-&lt;/details&gt;
 
 ### Update
-&lt;details&gt;
-	&lt;summary&gt;Click here to check your solution.&lt;/summary&gt;
-
 ```
 @app.route("/song/&lt;int:id&gt;", methods=["PUT"])
 def update_song(id):
@@ -707,12 +668,8 @@ def update_song(id):
     else:
         return parse_json(db.songs.find_one({"id": id})), 201
 ```
-&lt;/details&gt;
 
 ### Delete
-&lt;details&gt;
-	&lt;summary&gt;Click here to check your solution.&lt;/summary&gt;
-
 ```
 @app.route("/song/&lt;int:id&gt;", methods=["DELETE"])
 def delete_song(id):
@@ -723,8 +680,6 @@ def delete_song(id):
     else:
         return "", 204
 ```
-&lt;/details&gt;
-
 
 ::page{title="Conclusion"}
 
