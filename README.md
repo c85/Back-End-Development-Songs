@@ -1,9 +1,7 @@
 # Creating Get Songs Service with Flask
 ![](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-CD0320EN-SkillsNetwork/images/IDSN-logo.png)
 
-##
 **Estimated time needed**: 90 minutes
-##
 
 Welcome to the **Creating Get Songs Service with Flask** hands-on lab. In this lab, you will begin to build the service that you will eventually deploy to IBM Code Engine. The lab provides a GitHub template repository to get you started. The repository also contains python unit tests. You are being asked to complete the code so that the code passes all the tests.
 
